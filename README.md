@@ -9,7 +9,7 @@ validate environment variables.
 ## Installation
 
 ```bash
-yarn add @moveax/env-validation
+yarn add @moveaxlab/env-validation
 ```
 
 ## Usage
