@@ -6,3 +6,7 @@ tsconfig.json
 yarn.lock
 .eslintrc.js
 .github/
+.eslintignore
+.gitmodules
+validation-test-vectors/
+*.tgz

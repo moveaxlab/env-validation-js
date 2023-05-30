@@ -140,7 +140,8 @@ export interface ValidationErrorJSON {
 }
 
 export interface ArrayErrorJSON extends ValidationErrorJSON {
-  elementsErrors: ValidationErrorJSON[];
+  // eslint-disable-next-line camelcase
+  elements_errors: ValidationErrorJSON[];
 }
 
 export interface ObjectSchemaErrorsJSON {
@@ -148,7 +149,8 @@ export interface ObjectSchemaErrorsJSON {
 }
 
 export interface ObjectErrorJSON extends ValidationErrorJSON {
-  schemaErrors: ObjectSchemaErrorsJSON;
+  // eslint-disable-next-line camelcase
+  schema_errors: ObjectSchemaErrorsJSON;
 }
 
 export interface BaseErrorJSON {

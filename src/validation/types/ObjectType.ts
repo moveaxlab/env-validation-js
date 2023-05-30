@@ -59,7 +59,8 @@ export class ObjectType extends Type {
         }
         const objectSchema = this.schema as { [key: string]: Type };
         const objectRuleErrors: BaseError[] = this.validateRules(value);
-        const schemaErrors = new Map<string, ValidationError>();
+        // eslint-disable-next-line camelcase
+        const schema_errors = new Map<string, ValidationError>();
         const objectValue = value as JSONDataObject;
 
         for (const key of Object.keys(objectSchema)) {
@@ -67,13 +68,13 @@ export class ObjectType extends Type {
             try {
               objectSchema[key].validate(objectValue[key]);
             } catch (e) {
-              schemaErrors.set(key, e as ValidationError);
+              schema_errors.set(key, e as ValidationError);
             }
           }
         }
 
-        if (objectRuleErrors.length > 0 || schemaErrors.size > 0) {
-          throw new ObjectError([...objectRuleErrors], schemaErrors);
+        if (objectRuleErrors.length > 0 || schema_errors.size > 0) {
+          throw new ObjectError([...objectRuleErrors], schema_errors);
         }
       }
     }

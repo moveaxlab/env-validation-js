@@ -13,7 +13,7 @@ export class ArrayError extends ValidationError {
   toJSON(): ArrayErrorJSON {
     return {
       ...super.toJSON(),
-      elementsErrors: this.elements.map(err => err.toJSON()),
+      elements_errors: this.elements.map(err => err.toJSON()),
     };
   }
 }

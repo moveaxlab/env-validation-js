@@ -20,11 +20,11 @@ export class ObjectError extends ValidationError {
     err.errors = err.errors.filter(x => x.name !== 'required');
 
     for (const key of requiredError.params!) {
-      if (!(key in err.schemaErrors)) {
-        err.schemaErrors[key] = { errors: [] };
+      if (!(key in err.schema_errors)) {
+        err.schema_errors[key] = { errors: [] };
       }
-      err.schemaErrors[key].errors = [
-        ...err.schemaErrors[key].errors,
+      err.schema_errors[key].errors = [
+        ...err.schema_errors[key].errors,
         new RuleError(
           'required',
           (requiredError.value as JSONDataObject)[key]
@@ -37,9 +37,11 @@ export class ObjectError extends ValidationError {
 
   private schema: Map<string, ValidationError>;
 
-  constructor(err: BaseError[], schemaErrors: Map<string, ValidationError>) {
+  // eslint-disable-next-line camelcase
+  constructor(err: BaseError[], schema_errors: Map<string, ValidationError>) {
     super(err);
-    this.schema = schemaErrors;
+    // eslint-disable-next-line camelcase
+    this.schema = schema_errors;
   }
 
   toJSON(): ObjectErrorJSON {
@@ -52,7 +54,7 @@ export class ObjectError extends ValidationError {
 
     return ObjectError.toLegacy({
       ...super.toJSON(),
-      schemaErrors: { ...res },
+      schema_errors: { ...res },
     });
   }
 }

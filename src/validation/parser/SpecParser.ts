@@ -106,22 +106,25 @@ export class SpecParser {
     const requiredArr: string[] = [];
     for (const key in schema) {
       if (Object.prototype.hasOwnProperty.call(schema, key)) {
-        if (Object.prototype.hasOwnProperty.call(schema, key)) {
-          const { required, nullable, rules } = SpecParser.ProcessRules(
-            schema[key].rules
-          );
+        const { required, nullable, rules } = SpecParser.ProcessRules(
+          schema[key].rules
+        );
 
-          dstSchema[key] = {
-            rules,
-            nullable,
-            type: schema[key].type,
-          };
+        dstSchema[key] = {
+          rules,
+          nullable,
+          type: schema[key].type,
+        };
 
-          if (required) {
-            requiredArr.push(key);
-          }
+        if (required) {
+          requiredArr.push(key);
+        }
 
-          SpecParser.ProcessNode(schema[key], dstSchema[key]);
+        SpecParser.ProcessNode(schema[key], dstSchema[key]);
+
+        if (requiredArr.length > 0) {
+          const rule = { name: RuleNames.REQUIRED, params: requiredArr };
+          result.rules = [rule, ...result.rules];
         }
       }
     }
