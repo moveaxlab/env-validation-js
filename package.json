@@ -1,5 +1,5 @@
 {
-  "name": "@moveax/env-validation",
+  "name": "@moveaxlab/env-validation",
   "version": "0.1.0",
   "description": "Validate env variables",
   "main": "./lib/index.js",
