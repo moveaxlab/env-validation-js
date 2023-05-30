@@ -27,13 +27,9 @@ describe('Test specs', function() {
         it(`fails to run spec on data ${dataIdx}`, function() {
           try {
             const type = ValidatorFactory.make(spec.spec);
-            console.log(testData.data);
-            console.log(spec.spec);
-            console.log(testData.failing);
             type.validate(testData.data);
             assert(false);
           } catch (e) {
-            console.log(e);
             const computed = turnArraysToSets((e as ValidationError).toJSON());
             const expected = turnArraysToSets(testData.failing);
             assert.deepStrictEqual(computed, expected);
