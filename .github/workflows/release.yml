@@ -19,6 +19,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: yarn
+      - name: Checkout submodules
+        run: git submodule update --init
       - name: Check TypeScript definitions
         run: yarn test:types
       - name: Check linting
