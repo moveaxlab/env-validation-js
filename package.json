@@ -1,0 +1,60 @@
+{
+  "name": "@moveax/env-validation",
+  "version": "0.1.0",
+  "description": "Validate env variables",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "repository": "https://bitbucket.org/elevenlab/env-validation-js",
+  "author": "Michelle Laurenti <michelle.laurenti@moveax.it>",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib",
+    "src": "src",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "yarn test:types && yarn test:lint && yarn test:unit",
+    "test:unit": "jest",
+    "test:types": "tsc --noEmit",
+    "test:lint": "eslint --ext .ts .",
+    "fix:lint": "eslint --ext .ts --fix .",
+    "build": "rimraf lib && yarn tsc"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "yarn fix:lint",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn test"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/node": "^10.12.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^2.0.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "decimal.js": "^10.0.1",
+    "libphonenumber-js": "^1.7.5",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "xregexp": "^5.1.1"
+  }
+}

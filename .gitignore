@@ -1,0 +1,6 @@
+lib/
+.idea/
+.npmrc
+node_modules
+yarn-error.log
+*.tgz
