@@ -10,21 +10,3 @@ export enum asType {
   Url = 'asUrl',
   Uuid = 'asUuid',
 }
-
-export enum TypeNames {
-  ARRAY = 'array',
-  BASE58 = 'base58',
-  BASE64 = 'base64',
-  BASE64_ENCODED_FILE = 'base64_encoded_file',
-  BOOLEAN = 'boolean',
-  EMAIL = 'email',
-  FLOAT = 'float',
-  INTEGER = 'integer',
-  ISO_8601_DATE = 'ISO_8601_date',
-  OBJECT = 'object',
-  PHONE = 'phone',
-  SEQUENCE = 'sequence',
-  STRING = 'string',
-  URL = 'url',
-  UUID = 'uuid',
-}

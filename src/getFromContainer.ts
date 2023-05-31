@@ -13,13 +13,12 @@ import {
 import { asType } from './declarations';
 import { Value } from './types';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function getFromContainer(
   container: NodeJS.ProcessEnv,
   name: string,
   defaultValue?: Value
-): {
-  [key in asType]: (rules?: string | string[]) => string | boolean | number
-} {
+) {
   let value = defaultValue;
   if (name in container) {
     value = container[name];

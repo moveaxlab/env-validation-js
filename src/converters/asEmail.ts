@@ -1,4 +1,4 @@
-import { TypeNames } from '../declarations';
+import { TypeNames } from '../validation/declarations';
 import { Value } from '../types';
 import { validate } from './validate';
 

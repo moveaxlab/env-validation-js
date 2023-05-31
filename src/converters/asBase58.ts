@@ -1,6 +1,6 @@
 import { Value } from '../types';
 import { validate } from './validate';
-import { TypeNames } from '../declarations';
+import { TypeNames } from '../validation/declarations';
 
 function asBase58(
   name: string,
